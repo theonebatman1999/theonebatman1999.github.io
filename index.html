@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question For Blythe</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .question {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    #yesBtn {
+        background-color: #4CAF50;
+        color: white;
+    }
+    #yesBtn:hover {
+        background-color: #45a049;
+    }
+    #noBtn {
+        background-color: #f44336;
+        color: white;
+    }
+    #noBtn:hover {
+        background-color: #d32f2f;
+    }
+</style>
+</head>
+<body>
+    <div class="question"  id="question">Are you Blythe?</div>
+    <button class="btn" id="yesBtn">Yes</button>
+    <button class="btn" id="noBtn">No</button>
+    <div id="imageContainer"></div>
+
+    <script>
+        let clickCounter = 0;
+    
+        
+
+        // Function to handle "Yes" button click
+        document.getElementById("yesBtn").addEventListener("click", function() {
+            // Toggle between text values
+            clickCounter++;
+
+            const questions = [
+                "Are you Blythe?",
+                "Are you sure?",
+                "Are you certain?",
+                "How certain?",
+                "Only 100%?",
+                "Only 1000%?",
+                "You are 1000000% certain of what?",
+                "Blythe who?",
+                "You Have to be more specific",
+                "This Blythe Thea Williams?",  // show pic
+                "You have to say it all",
+                "Where from? There could be hundards that share that name",
+                "Who's in London?",
+                "Me who?",
+                "You have to say it all",
+                "Include where",
+                "Have to say this all out loud",
+                "Are you sure you said it out loud?",
+                "In real life?",    // remove no button for this one
+                "You have to say it in real life too",
+                "Loud enough for people to hear you?",
+                "Okay I belive you",
+                "I wanted to say some thing to you"
+
+
+
+            ];
+
+            const buttons = [
+                "Yes",
+                "I am sure",
+                "I am certain",
+                "100%",
+                "1000%",
+                "I am 1000000% certain",
+                "That I am Blythe",
+                "Blythe Thea",
+                "Blythe Thea Williams",
+                "Yes",
+                "I am Blythe Thea Williams",
+                "From London",
+                "Me!",
+                "Blythe!!",
+                "Blythe Thea Williams!!!",
+                "Blythe Thea Williams from London!!!!",
+                "I am Blythe Thea Williams from London!!!!",
+                "YES!!!!!",
+                "In real life?",
+                "*say 'I am Blythe Thea Williams from London' in real life*",
+                "*say 'I am Blythe Thea Williams from London' in real life louder*",
+                "Good, what did you want?",
+                "What did you want to say?"
+            ];
+
+            const imageContainer = document.getElementById("imageContainer");
+            const img = document.createElement("img");
+            imageContainer.innerHTML = ''; // Clear previous image
+            
+
+            const yesBtn = document.getElementById("yesBtn");
+            const currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+            const newSize = currentSize * 1.1;
+            yesBtn.style.fontSize = newSize + "px";
+            
+
+            document.getElementById("question").textContent = questions[clickCounter % questions.length];
+
+            document.getElementById("yesBtn").innerText = buttons[clickCounter % buttons.length];
+
+             
+            switch(clickCounter) {
+                case 23:
+                    window.location.href = "yes1.html";
+                    break;
+                case 22:
+                case 21:
+                    const noBtn = document.getElementById("noBtn");
+                    const noCurrentSize = parseInt(window.getComputedStyle(noBtn).fontSize);
+                    const oldSize = noCurrentSize;
+                    yesBtn.style.fontSize = noCurrentSize + "px";
+                case 18:
+                    document.getElementById("noBtn").innerText = "";
+                    break;
+                case 9:
+                    img.src = "blythephoto.jpg";
+                    imageContainer.innerHTML = ''; // Clear previous image
+                    imageContainer.appendChild(img);
+                    break;
+                
+                default:
+                     document.getElementById("noBtn").innerText = "no";
+                    // code block
+                } 
+            
+            
+
+        });
+
+        document.getElementById("noBtn").addEventListener("click", function() {
+            
+            window.location.href = "no.html";
+        });
+
+        
+    </script>
+</body>
+</html>
+
